@@ -11,7 +11,12 @@ namespace FizzBuzzApp.Tests
         [SetUp]
         public void Setup()
         {
-            var rules = new List<IFizzBuzzRule> { new FizzBuzzRule(), new FizzRule(), new BuzzRule() };
+            List<IFizzBuzzRule> rules = new() 
+            { 
+                new FizzBuzzRule(), 
+                new FizzRule(), 
+                new BuzzRule() 
+            };
             _processor = new FizzBuzzProcessor(rules);
         }
 
@@ -21,7 +26,7 @@ namespace FizzBuzzApp.Tests
         [TestCase(2, "2")]
         public void Processor_ShouldReturnCorrectResult(int number, string expectedResult)
         {
-            Assert.AreEqual(expectedResult, _processor.Process(number));
+            Assert.That(_processor.Process(number), Is.EqualTo(expectedResult));
         }
     }
 }

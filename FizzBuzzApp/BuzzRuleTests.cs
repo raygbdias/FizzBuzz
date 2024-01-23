@@ -18,7 +18,7 @@ namespace FizzBuzzApp.Tests
         [TestCase(20)]
         public void BuzzRule_ShouldApplyToBuzzNumbers(int number)
         {
-            Assert.IsTrue(_buzzRule.IsApplicable(number));
+            Assert.That(_buzzRule.IsApplicable(number), Is.True);
         }
 
         [TestCase(1)]
@@ -26,13 +26,13 @@ namespace FizzBuzzApp.Tests
         [TestCase(3)]
         public void BuzzRule_ShouldNotApplyToNonBuzzNumbers(int number)
         {
-            Assert.IsFalse(_buzzRule.IsApplicable(number));
+            Assert.That(_buzzRule.IsApplicable(number), Is.False);
         }
 
         [Test]
         public void BuzzRule_ShouldReturnBuzz()
         {
-            Assert.AreEqual("Buzz", _buzzRule.GetResult());
+            Assert.That(_buzzRule.GetResult(), Is.EqualTo("Buzz"));
         }
     }
 }
